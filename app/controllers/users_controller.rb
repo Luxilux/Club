@@ -36,10 +36,10 @@ class UsersController < ApplicationController
 
   def secret
     if logged_in?
-      redirect_to '/answer'
+      redirect_to '/users'
     else
       redirect_to login_url
-      flash[:success] = "Connecte toi pour connaître la réponse !"
+      flash[:success] = "Connecte toi pour connaître les membres du club"
   end
   end
 
@@ -52,8 +52,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Voili voilou"
-      redirect_to '/secret'
+      flash[:success] = "Welcome to hoooood"
+      redirect_to '/users'
     else
       render 'new'
     end
