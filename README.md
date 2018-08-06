@@ -1,0 +1,3 @@
+# README
+
+Minitest application
