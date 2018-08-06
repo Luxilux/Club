@@ -5,8 +5,11 @@ ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use bcrypt for hashing the password
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'rails-ujs', '~> 0.1.0'
+gem 'bootstrap-sass', '3.3.7'
+gem 'bcrypt', '~> 3.1.12'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -33,10 +36,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'minitest'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -58,7 +64,9 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :production do
+  gem 'pg'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem "minitest-rails"
